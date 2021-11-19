@@ -62,6 +62,7 @@
     <Compile Include="AdministradorModelTest.cs" />
     <Compile Include="MateriaModelTest.cs" />
     <Compile Include="PagoModelTest.cs" />
+    <Compile Include="ProgramaModelTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

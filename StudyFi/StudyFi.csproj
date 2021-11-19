@@ -132,6 +132,7 @@
     <Compile Include="Model\MateriaModel.cs" />
     <Compile Include="Model\PagoModel.cs" />
     <Compile Include="Model\ProfesorModel.cs" />
+    <Compile Include="Model\ProgramaModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
