@@ -47,6 +47,13 @@ namespace StudyFi.Tests
         }
 
         [TestMethod]
+        public void findAllByIdPrograma()
+        {
+            List<MateriaEntity> materias = MateriaModel.findAllByIdPrograma(1);
+            Assert.AreEqual(materias.Count, 0);
+        }
+
+        [TestMethod]
         public void findById()
         {
             MateriaEntity materia = MateriaModel.findById(0);

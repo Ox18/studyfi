@@ -78,6 +78,42 @@ namespace StudyFi.Model
             return materia;
         }
 
+        public static List<MateriaEntity> findAllByIdPrograma(int id)
+        {
+            List<MateriaEntity> materias = new List<MateriaEntity>();
+            MySqlConnection connection = ConnectionModel.getConnection();
+            MySqlCommand command = connection.CreateCommand();
+            command.CommandText = "SELECT * FROM materia WHERE idMateria = " + id;
+            try
+            {
+                connection.Open();
+                MySqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    MateriaEntity materia = new MateriaEntity();
+                    materia.Id = Convert.ToInt32(reader["idMateria"]);
+                    materia.Nombre = reader["nombre"].ToString();
+                    materia.Descripcion = reader["descripcion"].ToString();
+                    materia.PhotoUri = reader["photoUri"].ToString();
+                    materia.IdPrograma = Convert.ToInt32(reader["idPrograma"]);
+                    materia.CreatedAt = Convert.ToDateTime(reader["created_at"]);
+                    materia.UpdatedAT = Convert.ToDateTime(reader["updated_at"]);
+                    materias.Add(materia);
+                }
+            }
+            catch (Exception ex)
+            {
+                connection.Close();
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return materias;
+
+        }
+
         public static bool delete(MateriaEntity materia)
         {
             MySqlConnection conn = ConnectionModel.getConnection();
