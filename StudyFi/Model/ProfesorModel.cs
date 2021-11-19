@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using MySql.Data.MySqlClient;
 using StudyFi.entity;
 
@@ -29,6 +27,8 @@ namespace StudyFi.Model
                     profesor.FechaNacimiento = Convert.ToDateTime(reader["fechaNacimiento"]);
                     profesor.Correo = reader["correo"].ToString();
                     profesor.Password = reader["password"].ToString();
+                    profesor.NivelAcademico = reader["nivelAcademico"].ToString();
+                    profesor.Especialidad = reader["especialidad"].ToString();
                     profesor.Created_at = Convert.ToDateTime(reader["created_at"]);
                     profesor.Updated_at = Convert.ToDateTime(reader["updated_at"]);
                     profesores.Add(profesor);
@@ -64,6 +64,8 @@ namespace StudyFi.Model
                     profesor.Direccion = reader["direccion"].ToString();
                     profesor.FechaNacimiento = Convert.ToDateTime(reader["fechaNacimiento"]);
                     profesor.Correo = reader["correo"].ToString();
+                    profesor.NivelAcademico = reader["nivelAcademico"].ToString();
+                    profesor.Especialidad = reader["especialidad"].ToString();
                     profesor.Password = reader["password"].ToString();
                     profesor.Created_at = Convert.ToDateTime(reader["created_at"]);
                     profesor.Updated_at = Convert.ToDateTime(reader["updated_at"]);
@@ -101,6 +103,8 @@ namespace StudyFi.Model
                     profesor.FechaNacimiento = Convert.ToDateTime(reader["fechaNacimiento"]);
                     profesor.Correo = reader["correo"].ToString();
                     profesor.Password = reader["password"].ToString();
+                    profesor.NivelAcademico = reader["nivelAcademico"].ToString();
+                    profesor.Especialidad = reader["especialidad"].ToString();
                     profesor.Created_at = Convert.ToDateTime(reader["created_at"]);
                     profesor.Updated_at = Convert.ToDateTime(reader["updated_at"]);
                 }
@@ -149,7 +153,7 @@ namespace StudyFi.Model
         {
             MySqlConnection cn = ConnectionModel.getConnection();
             string query = "UPDATE profesor SET nombre = @nombre, apellido" +
-                " = @apellido, direccion = @direccion, " +
+                " = @apellido, direccion = @direccion, nivelAcademico = @nivelAcademico, especialidad = @especialidad, " +
                 "fechaNacimiento = @fechaNacimiento, correo = @correo, " +
                 "password = @password WHERE idProfesor = @id";
             bool isUpdated;
@@ -162,6 +166,8 @@ namespace StudyFi.Model
                 cmd.Parameters.AddWithValue("@fechaNacimiento", profesor.FechaNacimiento);
                 cmd.Parameters.AddWithValue("@correo", profesor.Correo);
                 cmd.Parameters.AddWithValue("@password", profesor.Password);
+                cmd.Parameters.AddWithValue("@nivelAcademico", profesor.NivelAcademico);
+                cmd.Parameters.AddWithValue("@especialidad", profesor.Especialidad);
                 cmd.Parameters.AddWithValue("@id", profesor.Id);
 
                 cn.Open();
@@ -189,7 +195,8 @@ namespace StudyFi.Model
             string query = "INSERT INTO profesor (nombre, apellido" +
                 ", direccion, " +
                 "fechaNacimiento, correo, " +
-                "password) VALUES(@nombre, @apellido, @direccion, @fechaNacimiento, @correo, @password)";
+                "password, nivelAcademico, especialidad) VALUES(@nombre, " +
+                "@apellido, @direccion, @fechaNacimiento, @correo, @password, @nivelAcademico, @especialidad)";
             bool success;
             try
             {
@@ -200,6 +207,8 @@ namespace StudyFi.Model
                 cmd.Parameters.AddWithValue("@fechaNacimiento", profesor.FechaNacimiento);
                 cmd.Parameters.AddWithValue("@correo", profesor.Correo);
                 cmd.Parameters.AddWithValue("@password", profesor.Password);
+                cmd.Parameters.AddWithValue("@nivelAcademico", profesor.NivelAcademico);
+                cmd.Parameters.AddWithValue("@especialidad", profesor.Especialidad);
 
                 cn.Open();
                 cmd.ExecuteNonQuery();

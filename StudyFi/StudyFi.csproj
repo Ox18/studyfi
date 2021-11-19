@@ -130,6 +130,7 @@
     <Compile Include="Model\ConnectionModel.cs" />
     <Compile Include="Model\EstudianteModel.cs" />
     <Compile Include="Model\MateriaModel.cs" />
+    <Compile Include="Model\PagoModel.cs" />
     <Compile Include="Model\ProfesorModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
