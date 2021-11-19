@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="StudyFi.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Materia.aspx.cs" Inherits="StudyFi.View.Materia" %>
 
 <!DOCTYPE html>
 
@@ -12,6 +12,5 @@
         <div>
         </div>
     </form>
-    <div id="resultConnection" runat="server"></div>
 </body>
 </html>
