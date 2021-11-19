@@ -57,8 +57,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EstudianteModelTest.cs" />
+    <Compile Include="ProfesorModelTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AdministradorModelTest.cs" />
+    <Compile Include="MateriaModelTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

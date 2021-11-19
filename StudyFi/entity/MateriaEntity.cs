@@ -15,6 +15,8 @@ namespace StudyFi.entity
         private DateTime createdAt;
         private DateTime updatedAT;
 
+        public MateriaEntity() { }
+
         public MateriaEntity(int id, string nombre, string descripcion, string photoUri, int idPrograma, DateTime createdAt, DateTime updatedAT)
         {
             this.Id = id;
