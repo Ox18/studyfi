@@ -118,6 +118,12 @@ namespace StudyFi.Model
             {
                 connection.Close();
             }
+
+            if (profesor == null)
+            {
+                throw new Exception("Credenciales invalidas.");
+            }
+
             return profesor;
         }
 

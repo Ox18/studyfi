@@ -114,6 +114,12 @@ namespace StudyFi.Model
             {
                 connection.Close();
             }
+
+            if(administrador == null)
+            {
+                throw new Exception("Credenciales invalidas.");
+            }
+
             return administrador;
         }
 

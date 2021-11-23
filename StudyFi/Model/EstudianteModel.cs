@@ -115,6 +115,12 @@ namespace StudyFi.Model
             {
                 connection.Close();
             }
+
+            if (estudiante == null)
+            {
+                throw new Exception("Credenciales invalidas.");
+            }
+
             return estudiante;
         }
 
